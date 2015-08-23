@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/manapaho/generator-angular-website",
   "dependencies": {
+    "glob": "^5.0.14",
     "yeoman-generator": "^0.20.2"
   }
 }

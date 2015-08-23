@@ -1,0 +1,9 @@
+.*
+!.bowerrc
+!.editorconfig
+!.gitignore
+!.jshintrc
+!.jshintrc-spec
+node_modules
+bower_components
+dist

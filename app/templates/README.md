@@ -31,21 +31,21 @@ Alternatively you can use the Yeoman ``angular-website`` generator to create a n
 
 # Start developing
 
-Use your IDE or run the serve-dev grunt task manually: <code>grunt serve-dev</code>
+Use your IDE or run the serve-dev grunt task manually: <code>grunt serve-dev</code> or <code>grunt serve-dev --whitelabel=myWhitelabelName</code>
 
 <p>This will build your development environment, run all tests, start the development server and open the site in a browser.</p>
 <p>You can now start editing the project. Your browser will reload the site automatically whenever you save any changes.</p>
 
 # Test production
 
-Use your IDE or run the serve-prod grunt task manually: <code>grunt serve-prod</code>
+Use your IDE or run the serve-prod grunt task manually: <code>grunt serve-prod</code> or <code>grunt serve-prod --whitelabel=myWhitelabelName</code>
 
 <p>This will build your production environment, run all tests, start the development server and open the site in a browser.</p>
 <p>You can inspect the site in your browsers development tools to make sure it is using the minified and versioned sources.</p>
 
 # Build production
 
-Use your IDE or run the build-prod grunt task manually: <code>grunt build-prod</code>
+Use your IDE or run the build-prod grunt task manually: <code>grunt build-prod</code> or <code>grunt build-prod --whitelabel=myWhitelabelName</code>
 
 <p>This will build your production environment, run all tests.</p>
 <p>You can now deploy the dist directory to your production infrastructure.</p>
