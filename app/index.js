@@ -3,6 +3,7 @@
 // the yeoman generator.
 var yeoman = require('yeoman-generator');
 var glob = require('glob');
+var path = require('path');
 var fs = require('fs');
 
 // export our generator.
@@ -67,6 +68,14 @@ module.exports = yeoman.generators.Base.extend({
         default: function (answers) {
           return answers.name.replace(/[^a-z0-9]+/gi, '');
         }
+      },
+      {
+        type: 'input',
+        name: 'stylesComponent',
+        message: 'What is the name of your company styles bower component?',
+        default: function (answers) {
+          return answers.name.replace(/[^a-z0-9]+/gi, '') + '-styles';
+        }
       }
     ];
     // start the dialog with the user.
@@ -94,11 +103,20 @@ module.exports = yeoman.generators.Base.extend({
       // process all templates.
       glob.glob('**/*', options, function (er, files) {
         for (var i in files) {
+          console.log(files[i]);
+          // no ejs processing for assets.
+          if (files[i].indexOf('/assets/') !== -1) {
+            this.fs.copy(
+              this.templatePath(files[i]),
+              this.destinationPath(this.yeoman.choices.name + '/' + files[i])
+            );
+            continue;
+          }
           // the gruntfile is special since it has ejs syntax in it which we don't want to override.
           if (files[i].indexOf('gruntfile.js') !== -1) {
             this.fs.copyTpl(
               this.templatePath(files[i]),
-              this.destinationPath(files[i].replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')),
+              this.destinationPath(this.yeoman.choices.name + '/' + files[i].replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')),
               this,
               {
                 delimiter: '*'
@@ -109,7 +127,7 @@ module.exports = yeoman.generators.Base.extend({
           // all other files can be processed with the standard ejs delimiter.
           this.fs.copyTpl(
             this.templatePath(files[i]),
-            this.destinationPath(files[i].replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')),
+            this.destinationPath(this.yeoman.choices.name + '/' + files[i].replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')),
             this
           );
         }
@@ -121,6 +139,9 @@ module.exports = yeoman.generators.Base.extend({
 
   // start the installation process after writing the transformed templates has finished.
   install: function () {
+    // change the current directory to install the dependencies.
+    var dir = path.join(process.cwd(), this.yeoman.choices.name);
+    process.chdir(dir);
     // install npm and bower dependencies for the generated website.
     this.installDependencies();
   }
