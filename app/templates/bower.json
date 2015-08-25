@@ -27,7 +27,8 @@
     "angular-ui-grid": "~3.0.0",
     "angular-ui-router": "~0.2.0",
     "bootstrap": "~3.3.0",
-    "lodash": "~3.10.0"
+    "lodash": "~3.10.0",
+    "<%= yeoman.choices.companyStylesName %>": "<%= yeoman.choices.companyStylesVersion %>"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0"

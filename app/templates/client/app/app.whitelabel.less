@@ -20,7 +20,7 @@
  * - base.bootstrap.*.less
  * - base.whitelabel.bootstrap.*.less
  */
-@import '../bower_components/<%= yeoman.choices.stylesComponent %>/base.<%= yeoman.choices.whitelabel %>.less';
+@import '../bower_components/<%= yeoman.choices.companyStylesName %>/base.<%= yeoman.choices.whitelabel %>.less';
 
 /**
  * Imports the following styles in this order:
@@ -32,7 +32,7 @@
 /**
  * Import all app.<%= yeoman.choices.whitelabel %>.bootstrap.*.less here.
  */
-@import '_bootstrap.<%= yeoman.choices.whitelabel %>/bootstrap.less';
+@import '_app.bootstrap.<%= yeoman.choices.whitelabel %>/bootstrap.less';
 
 /**
  * Add or import non-bootstrap whitelabel specific application styles here.

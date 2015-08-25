@@ -24,39 +24,15 @@ module.exports = yeoman.generators.Base.extend({
     // create the prompts in order of appearance.
     var prompts = [
       {
-        type: 'confirm',
-        name: 'companyStyles',
-        message: 'Do you already have a company styles bower component (if not run "yo angular-website:styles" first!)?',
-        default: false
-      },
-      {
-        when: function (answers) {
-          if (!answers.companyStyles) {
-            process.exit();
-          }
-          return true;
-        },
         type: 'input',
-        name: 'companyStylesName',
-        message: 'What is the name of your company styles bower component?',
+        name: 'name',
+        message: 'What will be the name of your company styles bower component?',
         default: this.appname + '-styles'
       },
       {
         type: 'input',
-        name: 'companyStylesVersion',
-        message: 'What is the version of your company styles bower component?',
-        default: '~0.0.1'
-      },
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What will be the name of your website project?',
-        default: this.appname
-      },
-      {
-        type: 'input',
         name: 'version',
-        message: 'What will be the version of your website project?',
+        message: 'What will be the version of your component?',
         default: '0.0.1'
       },
       {
@@ -89,9 +65,7 @@ module.exports = yeoman.generators.Base.extend({
         type: 'input',
         name: 'whitelabel',
         message: 'What will be your default whitelabel [a-zA-Z0-9]+ ?',
-        default: function (answers) {
-          return answers.name.replace(/[^a-z0-9]+/gi, '');
-        }
+        default: 'whitelabel'
       }
     ];
     // start the dialog with the user.
@@ -114,37 +88,18 @@ module.exports = yeoman.generators.Base.extend({
       // set the current directory to get relative paths and nodir to exclude directories only.
       var options = {
         cwd: this.templatePath().replace(/\\/g, "/"),
-        nodir: true,
-        dot: true
+        nodir: true
       };
       // process all templates.
       glob.glob('**/*', options, function (er, files) {
         for (var i in files) {
           console.log(files[i]);
-          // no ejs processing for assets.
-          if (files[i].indexOf('/assets/') !== -1) {
-            this.fs.copy(
-              this.templatePath(files[i]),
-              this.destinationPath(this.yeoman.choices.name + '/' + files[i])
-            );
-            continue;
-          }
-          // the gruntfile is special since it has ejs syntax in it which we don't want to override.
-          if (files[i].indexOf('gruntfile.js') !== -1) {
-            this.fs.copyTpl(
-              this.templatePath(files[i]),
-              this.destinationPath(this.yeoman.choices.name + '/' + files[i].replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')),
-              this,
-              {
-                delimiter: '*'
-              }
-            );
-            continue;
-          }
           // all other files can be processed with the standard ejs delimiter.
           this.fs.copyTpl(
             this.templatePath(files[i]),
-            this.destinationPath(this.yeoman.choices.name + '/' + files[i].replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')),
+            this.destinationPath(this.yeoman.choices.name + '/' + files[i]
+                .replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')
+                .replace('bootstrap.whitelabel', 'bootstrap.' + this.yeoman.choices.whitelabel)),
             this
           );
         }
@@ -157,9 +112,9 @@ module.exports = yeoman.generators.Base.extend({
   // start the installation process after writing the transformed templates has finished.
   install: function () {
     // change the current directory to install the dependencies.
-    var dir = path.join(process.cwd(), this.yeoman.choices.name);
-    process.chdir(dir);
+    // var dir = path.join(process.cwd(), this.yeoman.choices.name);
+    // process.chdir(dir);
     // install npm and bower dependencies for the generated website.
-    this.installDependencies();
+    // this.installDependencies();
   }
 });

@@ -207,7 +207,7 @@ module.exports = function (grunt) {
       less: {
         <*= yeoman.choices.whitelabel *>: {
           files: {
-            '<%= cfg.client %>/.css/app/app.<*= yeoman.choices.whitelabel *>.css': '<%= cfg.client %>/app/app.<*= yeoman.choices.whitelabel *>.less'
+            '<%= cfg.client %>/.css/app/app.css': '<%= cfg.client %>/app/app.<*= yeoman.choices.whitelabel *>.less'
           }
         }
       },

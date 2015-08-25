@@ -1,0 +1,17 @@
+{
+  "name": "<%= yeoman.choices.name %>",
+  "version": "<%= yeoman.choices.version %>",
+  "authors": [
+    "'<%= yeoman.choices.author %>' <<%= yeoman.choices.email %>>"
+  ],
+  "description": "<%= yeoman.choices.description %>",
+  "license": "MIT",
+  "homepage": "<%= yeoman.choices.homepage %>",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.0"
+  }
+}
