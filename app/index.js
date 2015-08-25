@@ -133,7 +133,9 @@ module.exports = yeoman.generators.Base.extend({
           if (files[i].indexOf('gruntfile.js') !== -1) {
             this.fs.copyTpl(
               this.templatePath(files[i]),
-              this.destinationPath(this.yeoman.choices.name + '/' + files[i].replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')),
+              this.destinationPath(this.yeoman.choices.name + '/' + files[i]
+                  .replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')
+                  .replace('bootstrap.whitelabel', 'bootstrap.' + this.yeoman.choices.whitelabel)),
               this,
               {
                 delimiter: '*'
