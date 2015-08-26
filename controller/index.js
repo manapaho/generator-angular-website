@@ -73,8 +73,8 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'input',
         name: 'name',
-        message: 'Service name in camelCase?',
-        default: 'localStorage'
+        message: 'Controller name in camelCase?',
+        default: 'navigationMenu'
       },
       {
         type: 'input',
@@ -131,7 +131,7 @@ module.exports = yeoman.generators.Base.extend({
             this.templatePath(files[i]),
             outdir + '/' + files[i]
               .replace('feature', this.yeoman.choices.feature)
-              .replace('name.service', this.yeoman.choices.name + '.service'),
+              .replace('name.controller', this.yeoman.choices.name + '.controller'),
             this
           );
         }

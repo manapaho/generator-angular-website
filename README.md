@@ -185,8 +185,23 @@ To create this kind of feature you would answer the Generators questions in this
     ? Routing url?                  = /gauges                   -- notice that the parent's feature path is not part of the url. It is inherited by the routing state.
     ? Output path?                  = app/dashboard/gauges      -- notice that partial child features should follow the routing location in the projects directory structure.
 
-# Components
-...
+# Component generators
+
+## Feature Controllers
+
+Sometimes you might need more than one controller within your feature. You can easily generate a new controller with:
+
+    yo angular-website:controller
+
+Make sure you run this command within the root folder of your website!
+
+## Feature Services
+
+Sometimes you might need more than one service within your feature. You can easily generate a new service with:
+
+    yo angular-website:service
+
+Make sure you run this command within the root folder of your website!
 
 ## develop build status
 [![Build Status](https://travis-ci.org/manapaho/generator-angular-website.svg?branch=develop)](https://travis-ci.org/manapaho/generator-angular-website)
