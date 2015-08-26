@@ -131,7 +131,59 @@ or
 to target a particular whitelabel.
 
 # Features
-...
+
+The default Yeoman website template comes with a predefined ``home`` feature. Obviously you want to add more features to your application.
+That can be easily done with the following command:
+
+    yo angular-website:feature
+
+Make sure you run this command within the root folder of your website!
+
+## Full Page Feature
+
+A full page feature is pretty much what you expect, a feature that will cover the entire site and is not directly dependent on parent features.
+
+    http://www.company.com/home
+    http://www.company.com/users
+
+To create this kind of feature you would answer the Generators questions in this way.
+
+    ? Module name?                  = app.users                 -- app.[feature name]
+    ? Feature name in camelCase?    = users
+    ? Routing state?                = users                     -- notice that there is no parent state here - this is what makes it a full page feature!
+    ? Routing url?                  = /users
+    ? Output path?                  = app/users                 -- notice that features should follow the routing location in the projects directory structure.
+
+## Full Page Feature as Logical Child Feature
+
+Logically a full page feature can still be a child of another feature. To clarify this look at these examples.
+
+    http://www.company.com/home/configuration                   -- This is an example of a full page feature that is a logical child of the home feature.
+    http://www.company.com/users/4711/settings                  -- This is an example of a full page feature that is a logical child of the users/user feature.
+
+To create this kind of feature you would answer the Generators questions in this way.
+
+    ? Module name?                  = app.users.user.settings   -- app.[feature name] or app.[logical parent(s)].[feature name]
+    ? Feature name in camelCase?    = settings
+    ? Routing state?                = settings                  -- notice that there is no parent state here - this is what makes it a full page feature!
+    ? Routing url?                  = /users/:id/settings       -- notice that we have logical parents in the route - this is what makes it a logical child feature.
+    ? Output path?                  = app/users/user/settings   -- notice that even logical child features should follow the routing location in the projects directory structure.
+
+## Partial Child Feature
+
+A Partial Child Feature does not cover the full Website. It is rather embedded in its parent feature's frame. The parent feature will have one or more ui-view elements.
+These elements are the insertion points for Partial Child Features.
+
+    http://www.company.com/dashboard/gauges                     -- This location will show the Partial Child Feature "gauges" within the parents ui-view elements.
+    http://www.company.com/dashboard/meters                     -- This location will show the Partial Child Feature "meters" within the parents ui-view elements.
+
+To create this kind of feature you would answer the Generators questions in this way.
+
+    ? Module name?                  = app.dashboard.gauges      -- app.[parent(s)].[feature name]
+    ? Feature name in camelCase?    = gauges
+    ? Routing state?                = dashboard.gauges          -- notice that there is a parent state here - this is what makes it a partial child feature!
+    ? Routing url?                  = /gauges                   -- notice that the parent's feature path is not part of the url. It is inherited by the routing state.
+    ? Output path?                  = app/dashboard/gauges      -- notice that partial child features should follow the routing location in the projects directory structure.
 
 # Components
 ...
