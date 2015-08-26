@@ -7,9 +7,11 @@
     "test": "mocha"
   },
   "files": [
+    "styles",
     "app",
     "feature",
-    "styles"
+    "service",
+    "controller"
   ],
   "main": "app/index.js",
   "repository": {
