@@ -4,11 +4,14 @@
   "description": "A yeoman generator to scaffold angular based websites, features and components.",
   "main": "app/index.js",
   "scripts": {
-    "test": "test/test-app.js"
+    "test": "mocha"
   },
   "files": [
-    "app"
+    "app",
+    "feature",
+    "styles"
   ],
+  "main": "app/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/manapaho/generator-angular-website.git"
@@ -30,5 +33,9 @@
   "dependencies": {
     "glob": "^5.0.14",
     "yeoman-generator": "^0.20.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "mockery": "^1.4.0"
   }
 }

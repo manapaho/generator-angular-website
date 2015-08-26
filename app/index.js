@@ -120,13 +120,13 @@ module.exports = yeoman.generators.Base.extend({
       // process all templates.
       glob.glob('**/*', options, function (er, files) {
         for (var i in files) {
-          console.log(files[i]);
           // no ejs processing for assets.
           if (files[i].indexOf('/assets/') !== -1) {
             this.fs.copy(
               this.templatePath(files[i]),
               this.destinationPath(this.yeoman.choices.name + '/' + files[i])
             );
+            console.log(this.destinationPath(this.yeoman.choices.name + '/' + files[i]));
             continue;
           }
           // the gruntfile is special since it has ejs syntax in it which we don't want to override.
@@ -141,14 +141,22 @@ module.exports = yeoman.generators.Base.extend({
                 delimiter: '*'
               }
             );
+            console.log(this.destinationPath(this.yeoman.choices.name + '/' + files[i]
+                .replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')
+                .replace('bootstrap.whitelabel', 'bootstrap.' + this.yeoman.choices.whitelabel)));
             continue;
           }
           // all other files can be processed with the standard ejs delimiter.
           this.fs.copyTpl(
             this.templatePath(files[i]),
-            this.destinationPath(this.yeoman.choices.name + '/' + files[i].replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')),
+            this.destinationPath(this.yeoman.choices.name + '/' + files[i]
+                .replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')
+                .replace('bootstrap.whitelabel', 'bootstrap.' + this.yeoman.choices.whitelabel)),
             this
           );
+          console.log(this.destinationPath(this.yeoman.choices.name + '/' + files[i]
+              .replace('whitelabel.less', this.yeoman.choices.whitelabel + '.less')
+              .replace('bootstrap.whitelabel', 'bootstrap.' + this.yeoman.choices.whitelabel)));
         }
         // indicate that the dialog with the user has been finished.
         done();
