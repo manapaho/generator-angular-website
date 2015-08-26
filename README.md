@@ -190,3 +190,6 @@ To create this kind of feature you would answer the Generators questions in this
 
 ## develop build status
 [![Build Status](https://travis-ci.org/manapaho/generator-angular-website.svg?branch=develop)](https://travis-ci.org/manapaho/generator-angular-website)
+
+## master build status
+[![Build Status](https://travis-ci.org/manapaho/generator-angular-website.svg?branch=master)](https://travis-ci.org/manapaho/generator-angular-website)
