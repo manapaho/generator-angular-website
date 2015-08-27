@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-website",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A yeoman generator to scaffold angular based websites, features and components.",
   "main": "app/index.js",
   "scripts": {
