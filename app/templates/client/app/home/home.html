@@ -1,0 +1,45 @@
+<!-- Wrap every feature in its own element. That gives us proper css encapsulation. -->
+<app-home>
+  <!-- A bootstrap navbar. -->
+  <nav class="navbar navbar-inverse navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Home</a>
+      </div>
+    </div>
+  </nav>
+  <!-- Always use the bootstrap grid system. -->
+  <div class="container">
+    <div class="row">
+    </div>
+    <div class="row" style="text-align: center;">
+      <h3 class="col-xs-5 vtop">How are you?</h3><!--
+      --><img class="col-xs-2 vtop" src="assets/images/yeoman.png" alt="I'm Yeoman"><!--
+      --><h3 class="col-xs-5 vtop">{{homeController.anything}}</h3>
+    </div>
+    <div class="row" style="text-align: center;">
+      <div class="col-xs-12">
+        <label>Some Icons:</label>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        <span class="icon-accessibility"></span>
+      </div>
+    </div>
+    <div class="row">
+      <example-component class="col-xs-12"></example-component>
+    </div>
+    <div class="row">
+      <!-- This will only be visible if the API returns the value. -->
+      <span class="col-xs-12">{{homeController.stuff.something}}</span>
+    </div>
+  </div>
+  <!-- Show nested features here. -->
+  <div ui-view></div>
+</app-home>

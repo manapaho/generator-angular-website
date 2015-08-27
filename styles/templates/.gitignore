@@ -1,0 +1,5 @@
+.*
+!.gitignore
+!.bowerrc
+!.editorconfig
+bower_components

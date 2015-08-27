@@ -1,0 +1,9 @@
+{
+  "directory": "../",
+  "registry": {
+    "register": "http://192.168.100.90:5678",
+    "search": [
+      "https://bower.herokuapp.com"
+    ]
+  }
+}

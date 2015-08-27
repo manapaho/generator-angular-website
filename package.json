@@ -1,0 +1,43 @@
+{
+  "name": "generator-angular-website",
+  "version": "1.0.0",
+  "description": "A yeoman generator to scaffold angular based websites, features and components.",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "styles",
+    "app",
+    "feature",
+    "service",
+    "controller"
+  ],
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manapaho/generator-angular-website.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "angular",
+    "website"
+  ],
+  "author": {
+    "name": "Bernd Wessels",
+    "url": "https://github.com/BerndWessels"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manapaho/generator-angular-website/issues"
+  },
+  "homepage": "https://github.com/manapaho/generator-angular-website",
+  "dependencies": {
+    "glob": "^5.0.14",
+    "yeoman-generator": "^0.20.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "mockery": "^1.4.0"
+  }
+}

@@ -1,0 +1,50 @@
+/**
+ * The Whitelabel Application Styles.
+ */
+
+/**
+ * The resulting import order will be (each next can overrides all previous):
+ *
+ * bootstrap.*.less                         - basic bootstrap theme.
+ * base.bootstrap.*.less                    - cross application and cross whitelabel bootstrap theme overrides.
+ * base.whitelabel.bootstrap.*.less         - cross application whitelabel specific bootstrap theme overrides.
+ * app.bootstrap.*.less                     - application specific cross whitelabel bootstrap theme overrides.
+ * feature(s).bootstrap.*.less              - feature specific cross whitelabel bootstrap theme overrides.
+ * app.whitelabel.bootstrap.*.less          - application and whitelabel specific bootstrap theme overrides.
+ * feature(s).whitelabel.bootstrap.*.less   - feature and whitelabel specific bootstrap theme overrides.
+ */
+
+/**
+ * Imports the following styles in this order:
+ * - bootstrap.*.less
+ * - base.bootstrap.*.less
+ * - base.whitelabel.bootstrap.*.less
+ */
+@import '../bower_components/<%= yeoman.choices.companyStylesName %>/base.<%= yeoman.choices.whitelabel %>.less';
+
+/**
+ * Imports the following styles in this order:
+ * - app.bootstrap.*.less
+ * - feature(s).bootstrap.*.less
+ */
+@import 'app.less';
+
+/**
+ * Import all app.<%= yeoman.choices.whitelabel %>.bootstrap.*.less here.
+ */
+@import '_app.bootstrap.<%= yeoman.choices.whitelabel %>/bootstrap.less';
+
+/**
+ * Add or import non-bootstrap whitelabel specific application styles here.
+ */
+// Add application specific styles here.
+body {
+  app-feature {
+  }
+}
+
+/**
+ * Imports of feature.<%= yeoman.choices.name %>.bootstrap.*.less are injected through grunt.
+ */
+// injector
+// endinjector
