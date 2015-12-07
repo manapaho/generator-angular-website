@@ -1,26 +1,15 @@
 /**
- * The <%= yeoman.choices.Feature %> Feature Whitelabel specific styles.
+ * The <%= yeoman.choices.Whitelabel %> Whitelabel <%= yeoman.choices.Feature %> Feature specific styles.
  */
 
 /**
  * Import all feature.<%= yeoman.choices.whitelabel %>.bootstrap.*.less here.
+ *
+ * Uncomment the import and copy the bootstrap files
+ * you are going to override to the specified location.
  */
-@import '_<%= yeoman.choices.feature %>.bootstrap.<%= yeoman.choices.whitelabel %>/bootstrap.less';
+// @import './_bootstrap.<%= yeoman.choices.whitelabel %>/bootstrap.less';
 
 /**
- * Add or import non-bootstrap whitelabel specific feature styles here.
+ * Add or import non-bootstrap <%= yeoman.choices.whitelabel %> whitelabel specific feature styles here.
  */
-// Add feature specific styles here.
-body {
-  app-feature {
-    app-<%= yeoman.choices.featureDash %> {
-      .navbar {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 100;
-        font-size: xx-large;
-        text-align: center;
-      }
-    }
-  }
-}

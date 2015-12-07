@@ -1,66 +1,55 @@
-// Karma configuration
-// http://karma-runner.github.io/0.10/config/configuration-file.html
-
-module.exports = function (config) {
+// Reference: http://karma-runner.github.io/0.12/config/configuration-file.html
+module.exports = function karmaConfig (config) {
   config.set({
-    // base path, that will be used to resolve files and exclude
-    basePath: '',
+    frameworks: [
+      // Reference: https://github.com/karma-runner/karma-jasmine
+      // Set framework to jasmine
+      'jasmine'
+    ],
 
-    // testing framework to use (jasmine/mocha/qunit/...)
-    frameworks: ['jasmine'],
+    reporters: [
+      // Reference: https://github.com/mlex/karma-spec-reporter
+      // Set reporter to print detailed results to console
+      'spec',
 
-    // list of files / patterns to load in the browser
+      // Reference: https://github.com/karma-runner/karma-coverage
+      // Output code coverage files
+      'coverage'
+    ],
+
     files: [
-      // The bower dependencies are automatically injected here.
-      // Bower
-      // endbower
-      // This is mocking angular for testing.
-      'client/bower_components/angular-mocks/angular-mocks.js',
-      // Make sure this covers all your code.
-      'client/app/**/*.module.js',
-      'client/components/**/*.module.js',
-      'client/app/**/*.js',
-      'client/components/**/*.js',
-      'client/app/**/*.html',
-      'client/components/**/*.html'
+      // Import all externals.
+      'public/externals/angular.1.4.7.js',
+      // Grab all files in the app folder that contain .test.
+      'src/tests.webpack.js'
     ],
 
     preprocessors: {
-      '**/*.html': 'html2js'
+      // Reference: http://webpack.github.io/docs/testing.html
+      // Reference: https://github.com/webpack/karma-webpack
+      // Convert files with webpack and load sourcemaps
+      'src/tests.webpack.js': ['webpack', 'sourcemap']
     },
 
-    ngHtml2JsPreprocessor: {
-      stripPrefix: 'client/'
+    browsers: [
+      // Run tests using PhantomJS
+      // Or use 'npm run test:live' with 'Chrome' to debug tests.
+      'PhantomJS'
+    ],
+
+    singleRun: true,
+
+    // Configure code coverage reporter
+    coverageReporter: {
+      dir: 'build/coverage/',
+      type: 'html'
     },
 
-    // list of files / patterns to exclude
-    exclude: [],
+    webpack: require('./webpack.test'),
 
-    // web server port
-    port: 9192,
-
-    // level of logging
-    // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO,
-
-
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
-
-
-    // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera
-    // - Safari (only Mac)
-    // - PhantomJS
-    // - IE (only Windows)
-    browsers: ['PhantomJS'],
-
-
-    // Continuous Integration mode
-    // if true, it capture browsers, run tests and exit
-    singleRun: false
+    // Hide webpack build information from output
+    webpackMiddleware: {
+      noInfo: true
+    }
   });
 };

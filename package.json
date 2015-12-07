@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-website",
-  "version": "1.0.2",
+  "version": "2.0.3",
   "description": "A yeoman generator to scaffold angular based websites, features and components.",
   "main": "app/index.js",
   "scripts": {
@@ -13,7 +13,6 @@
     "service",
     "controller"
   ],
-  "main": "app/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/manapaho/generator-angular-website.git"
@@ -37,7 +36,9 @@
     "yeoman-generator": "^0.20.2"
   },
   "devDependencies": {
+    "chalk": "^1.1.1",
     "mocha": "^2.2.5",
-    "mockery": "^1.4.0"
+    "mockery": "^1.4.0",
+    "yosay": "^1.1.0"
   }
 }

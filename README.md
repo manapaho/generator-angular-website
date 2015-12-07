@@ -32,14 +32,6 @@ store your user credentials:
 
     git config --global credentials.helper store
 
-Now install the bower package manager:
-
-    npm install -g bower
-
-Then install the grunt cli:
-
-    npm install -g grunt-cli
-
 Finally install the yeoman and this angular website generator:
 
     npm install -g yo
@@ -50,26 +42,6 @@ Finally install the yeoman and this angular website generator:
 Now that you have setup your system you can use this generator.
 
 Before we create the core web application we have to make sure we have the necessary dependencies in place.
-
-## company-styles
-
-If you haven't already create it you first have to create your companies styles component.
-This is basically a Git repository and a bower component that holds all your company styles
-across all applications and whitelabels.
-
-To create it run the following command and answer all questions truthfully:
-
-    yo angular-website:styles
-
-We recommend to name your component like ``company-styles`` and your whitelabels short and simple like ``mastercard``.
-
-After having created your company styles you should create a Git repository with the same name for it and check it in to GitHub.
-
-Alternatively while you develop locally you can use the following command in your company styles component folder:
-
-    bower link
-
-This will create a sym link to this bower component which we can use later to link the web application to it.
 
 ## website
 
@@ -83,26 +55,15 @@ We recommend that you name your website like ``company-website``.
 
 After the successful creation of your website the generator will trigger the installation of all npm and bower dependencies.
 
-This might fail if you haven't registered the company styles repository and bower component yet. In this case you simply
-link your local company styles by running the following command within your company website's folder:
-
-    bower link company-styles
-
-Obviously you have to replace ``company-styles`` with the name you have chosen for your company styles component.
-
 ## Start development
 
 The development process is fully automated and even supports live-reload of your browser whenever you make changes to your website.
 
 To start development and run the website in your browser simply run:
 
-    grunt serve-dev
+    npm run dev
 
 This will serve your website and the default white-label.
-
-Once you have got more white-labels you can select the one you are working on with a grunt option:
-
-    grunt serve-dev --whitelabel:visa
 
 ## Build the minified production release
 
@@ -110,25 +71,7 @@ The production output is very different from the development output. Basically i
 
 To build this run:
 
-    grunt build-prod
-
-or
-
-    grunt build-prod --whitelabel:visa
-
-to target a particular whitelabel.
-
-## Serve the production code locally to make sure it works
-
-From time to time you want to make sure that your production code works as expected. To do that you can serve it locally:
-
-    grunt serve-prod
-
-or
-
-    grunt serve-prod --whitelabel:visa
-
-to target a particular whitelabel.
+    npm run build
 
 # Features
 
@@ -202,9 +145,3 @@ Sometimes you might need more than one service within your feature. You can easi
     yo angular-website:service
 
 Make sure you run this command within the root folder of your website!
-
-## develop build status
-[![Build Status](https://travis-ci.org/manapaho/generator-angular-website.svg?branch=develop)](https://travis-ci.org/manapaho/generator-angular-website)
-
-## master build status
-[![Build Status](https://travis-ci.org/manapaho/generator-angular-website.svg?branch=master)](https://travis-ci.org/manapaho/generator-angular-website)

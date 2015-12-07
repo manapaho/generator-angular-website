@@ -4,21 +4,14 @@
  * @memberOf <%= yeoman.choices.Feature %> Module
  * @namespace <%= yeoman.choices.Feature %> Config
  */
-(function () {
-  'use strict';
 
-  // Register the module's configuration.
-  angular.module('<%= yeoman.choices.module %>').config(config);
+/**
+ * @name config
+ * @desc Configures the module.
+ * @memberOf <%= yeoman.choices.Feature %> Module.<%= yeoman.choices.Feature %> Config
+ * @ngInject
+ */
+var config = function () {
+}
 
-  // Inject the dependencies.
-  config.$inject = [];
-
-  /**
-   * @name config
-   * @desc Configures the module.
-   * @memberOf <%= yeoman.choices.Feature %> Module.<%= yeoman.choices.Feature %> Config
-   */
-  function config() {
-  }
-
-})();
+export default config;

@@ -116,7 +116,7 @@ module.exports = yeoman.generators.Base.extend({
       // create the done handler.
       var done = this.async();
       // create the output directory.
-      var outdir = this.destinationPath('client/' + this.yeoman.choices.outputDir);
+      var outdir = this.destinationPath('src/' + this.yeoman.choices.outputDir);
       // set the current directory to get relative paths and nodir to exclude directories only.
       var options = {
         cwd: this.templatePath().replace(/\\/g, "/"),

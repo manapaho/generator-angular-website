@@ -1,0 +1,50 @@
+/**
+ * The Whitelabel Whitelabel Application Styles.
+ */
+
+/**
+ * The resulting import order will be (each next can overrides all previous):
+ *
+ * bootstrap.*.less
+ * base.bootstrap.*.less
+ * base.whitelabel.bootstrap.*.less
+ * app.bootstrap.*.less
+ * feature(s).bootstrap.*.less
+ * app.whitelabel.bootstrap.*.less
+ * feature(s).whitelabel.bootstrap.*.less
+ */
+
+/**
+ * Imports the following styles in this order:
+ * - bootstrap.*.less
+ * - base.bootstrap.*.less
+ * - base.whitelabel.bootstrap.*.less
+ * @import '~whitelabel-styles/base.whitelabel.less';
+ */
+@import '~bootstrap/less/bootstrap.less';
+
+/**
+ * Imports the following styles in this order:
+ * - app.bootstrap.*.less
+ * - feature(s).bootstrap.*.less
+ */
+@import './app.less';
+
+/**
+ * Import all app.whitelabel.bootstrap.*.less here.
+ */
+@import './_bootstrap.whitelabel/bootstrap.less';
+
+/**
+ * Add or import non-bootstrap whitelabel whitelabel specific application styles here.
+ */
+body {
+  app-feature {
+  }
+}
+
+/**
+ * Import all feature.whitelabel.bootstrap.*.less here.
+ */
+@import './home/home.whitelabel.less';
+/* yeoman:inject:feature */

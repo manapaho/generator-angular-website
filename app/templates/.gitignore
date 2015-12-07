@@ -1,9 +1,3 @@
-.*
-!.bowerrc
-!.editorconfig
-!.gitignore
-!.jshintrc
-!.jshintrc-spec
-node_modules
-bower_components
+build
 dist
+node_modules
