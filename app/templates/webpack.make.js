@@ -133,7 +133,7 @@ module.exports = function makeWebpackConfig(options) {
         // Reference: https://github.com/webpack/raw-loader
         // Allow loading html through js
         test: /\.html$/,
-        loader: 'raw'
+        loader: 'html'
       }]
   };
 

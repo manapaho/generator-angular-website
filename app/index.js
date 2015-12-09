@@ -14,7 +14,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the extraordinary ' + chalk.red('WebsiteGenerator') + ' generator 2.0.3!'
+      'Welcome to the extraordinary ' + chalk.red('WebsiteGenerator') + ' generator 2.0.5!'
     ));
 
     var prompts = [
